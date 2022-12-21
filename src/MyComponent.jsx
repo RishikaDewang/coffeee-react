@@ -1,3 +1,4 @@
+import MyComponent2 from "./MyComponent2";
 
 
 const MyComponent = ()=>{
@@ -8,6 +9,7 @@ const MyComponent = ()=>{
         <div>
         <h2>This is a new Component</h2>
         <p>{message}</p>
+        <MyComponent2/>
         </div>
     );
 }

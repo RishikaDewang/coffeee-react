@@ -1,27 +1,53 @@
+
 import logo from './logo.svg';
 import './App.css';
+import React , {useState}  from 'react';
 import MyComponent from './MyComponent';
-import NewCompWithProps from './NewCompWithProps';
+import FuncComponent from './FuncComponent';
+import ClassComponent from './classComponent';
 
 function App() {
+  const [name , setName] = useState("Rishika");
+  const [showFuncComponent , setShowFuncComponent] = useState(false);
+  const changeName = ()=>{
+    setName(name + "  Rishu");
+  }
+  /*setTimeout( () =>{
+    setName("Rishu");
+  },2000)
+  */
 
+  const changeView = () =>{
+    setShowFuncComponent(!showFuncComponent);
+  } 
+
+  
   const message = ()=>{
     return "Welcome to coffeee"
-  }
+  };
 
-  const name ="Rishika"
+  
+  
   return (
     <div className='App'>
     <h1>Coffee Sample App</h1>
-    <>
+    <button onClick={changeName} >change name</button>
+    {showFuncComponent === true ? 
+    (<FuncComponent name={name} age="22"/>)
+    :null}
+
+    {showFuncComponent === false ? <ClassComponent/> : null}
+    
+    <button onClick={changeView}>Change view</button>
+    {/*<>
     <MyComponent/>
     <div>{message()}</div>
     <h1>Welcome , {name}</h1>
-    <NewCompWithProps name="Rishika" age="22"/>
-    <NewCompWithProps name="Rishu" age ="21"/>
-    <NewCompWithProps name = "Rish" age ="20"/>
+    <FuncComponent name="Rishika" age="22"/>
+    <FuncComponent name="Rishu" age ="21"/>
+    <FuncComponent name = "Rish" age ="20"/>
     
-    </>
+  </>*/}
     
     </div>
   );
